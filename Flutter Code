@@ -1,0 +1,316 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion flutter.compileSdkVersion
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.salarsapplication.app"
+        minSdkVersion 21
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+buildscript {
+    ext.kotlin_version = '1.7.20'
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+include ':app'
+
+def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
+def properties = new Properties()
+
+assert localPropertiesFile.exists()
+localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
+
+def flutterSdkPath = properties.getProperty("flutter.sdk")
+assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility that Flutter provides. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:salar_s_application/main.dart';
+
+void main() {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+}
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
+
+const String dateTimeFormatPattern = 'dd/MM/yyyy';
+
+extension DateTimeExtension on DateTime {
+  /// Return a string representing [date] formatted according to our locale
+  String format([
+    String pattern = dateTimeFormatPattern,
+    String? locale,
+  ]) {
+    if (locale != null && locale.isNotEmpty) {
+      initializeDateFormatting(locale);
+    }
+    return DateFormat(pattern, locale).format(this);
+  }
+}
+class ImageConstant {
+  // Image folder path
+  static String imagePath = 'assets/images';
+
+  // Login/Sign up images
+  static String imgEllipse4 = '$imagePath/img_ellipse_4.png';
+
+  static String imgFlatColorIconsGoogle =
+      '$imagePath/img_flat_color_icons_google.svg';
+
+  static String imgEllipse8 = '$imagePath/img_ellipse_8.png';
+
+  static String imgFacebook = '$imagePath/img_facebook.svg';
+
+  // Login images
+  static String imgEllipse480x40 = '$imagePath/img_ellipse_4_80x40.png';
+
+  static String imgCarbonUserFilled = '$imagePath/img_carbon_user_filled.svg';
+
+  static String imgOverflowMenu = '$imagePath/img_overflow_menu.svg';
+
+  static String imgEllipse8155x135 = '$imagePath/img_ellipse_8_155x135.png';
+
+  // Sign Up images
+  static String imgEllipse81 = '$imagePath/img_ellipse_8_1.png';
+
+  static String imgEllipse41 = '$imagePath/img_ellipse_4_1.png';
+
+  static String imgUser = '$imagePath/img_user.svg';
+
+  static String imgVectorGray300 = '$imagePath/img_vector_gray_300.svg';
+
+  static String imgOverflowMenuGray300 =
+      '$imagePath/img_overflow_menu_gray_300.svg';
+
+  // Account Created images
+  static String imgEllipse42 = '$imagePath/img_ellipse_4_2.png';
+
+  static String imgSearchLightGreenA70001 =
+      '$imagePath/img_search_light_green_a700_01.svg';
+
+  static String imgEllipse82 = '$imagePath/img_ellipse_8_2.png';
+
+  // Welcome images
+  static String imgIconScopeLife = '$imagePath/img_icon_scope_life.svg';
+
+  static String imgIconBars = '$imagePath/img_icon_bars.svg';
+
+  static String imgScreenshot20231118 =
+      '$imagePath/img_screenshot_2023_11_18.png';
+
+  // Menu images
+  static String imgScreenshot2023111877x80 =
+      '$imagePath/img_screenshot_2023_11_18_77x80.png';
+
+  static String imgClose = '$imagePath/img_close.svg';
+
+  static String imgSearchGray50 = '$imagePath/img_search_gray_50.svg';
+
+  // Face Scan images
+  static String imgSearchOnerror = '$imagePath/img_search_onerror.svg';
+
+  static String imgWhatsappImage20231118 =
+      '$imagePath/img_whatsapp_image_2023_11_18.png';
+
+  static String imgIconCheckSquare = '$imagePath/img_icon_check_square.svg';
+
+  // Media Usage images
+  static String imgCloseOnerror = '$imagePath/img_close_onerror.svg';
+
+  static String imgIconInstagram = '$imagePath/img_icon_instagram.png';
+
+  static String imgIconSnapchat = '$imagePath/img_icon_snapchat.svg';
+
+  static String imgWhatsapp = '$imagePath/img_whatsapp.svg';
+
+  static String imgLocation = '$imagePath/img_location.svg';
+
+  static String imgYoutube = '$imagePath/img_youtube.svg';
+
+  // Addiction Assessment images
+  static String imgFigpie = '$imagePath/img_figpie.svg';
+
+  // Desktop - Six images
+  static String imgCloseGray50 = '$imagePath/img_close_gray_50.svg';
+
+  static String imgSearchGray5020x22 =
+      '$imagePath/img_search_gray_50_20x22.svg';
+
+  static String imgScreenshot2023111877x74 =
+      '$imagePath/img_screenshot_2023_11_18_77x74.png';
+
+  // Common images
+  static String imgVector = '$imagePath/img_vector.svg';
+
+  static String imgSearch = '$imagePath/img_search.svg';
+
+  static String imgIconMessage = '$imagePath/img_icon_message.svg';
+
+  static String imgUserGray50 = '$imagePath/img_user_gray_50.svg';
+
+  static String imgOverflowMenuGray50 =
+      '$imagePath/img_overflow_menu_gray_50.svg';
+
+  static String imgQuestion = '$imagePath/img_question.svg';
+
+  static String imgIconMoon = '$imagePath/img_icon_moon.svg';
+
+  static String imgArrowLeft = '$imagePath/img_arrow_left.svg';
+
+  static String imageNotFound = 'assets/images/image_not_found.png';
+}
+import 'dart:ui' as ui;
+import 'package:flutter/material.dart';
+
+// This functions are responsible to make UI responsive across all the mobile devices.
+
+MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
+
+// These are the Viewport values of your Figma Design.
+// These are used in the code as a reference to create your UI Responsively.
+const num FIGMA_DESIGN_WIDTH = 360;
+const num FIGMA_DESIGN_HEIGHT = 800;
+const num FIGMA_DESIGN_STATUS_BAR = 0;
+
+///This extension is used to set padding/margin (for the top and bottom side) & height of the screen or widget according to the Viewport height.
+extension ResponsiveExtension on num {
+  ///This method is used to get device viewport width.
+  get _width {
+    return mediaQueryData.size.width;
+  }
+
+  ///This method is used to get device viewport height.
+  get _height {
+    num statusBar = mediaQueryData.viewPadding.top;
+    num bottomBar = mediaQueryData.viewPadding.bottom;
+    num screenHeight = mediaQueryData.size.height - statusBar - bottomBar;
+    return screenHeight;
+  }
+
+  ///This method is used to set padding/margin (for the left and Right side) & width of the screen or widget according to the Viewport width.
+  double get h => ((this * _width) / FIGMA_DESIGN_WIDTH);
+
+  ///This method is used to set padding/margin (for the top and bottom side) & height of the screen or widget according to the Viewport height.
+  double get v =>
+      (this * _height) / (FIGMA_DESIGN_HEIGHT - FIGMA_DESIGN_STATUS_BAR);
+
+  ///This method is used to set smallest px in image height and width
+  double get adaptSize {
+    var height = v;
+    var width = h;
+    return height < width ? height.toDoubleValue() : width.toDoubleValue();
+  }
+
+  ///This method is used to set text font size according to Viewport
+  double get fSize => adaptSize;
+}
+
+extension FormatExtension on double {
+  /// Return a [double] value with formatted according to provided fractionDigits
+  double toDoubleValue({int fractionDigits = 2}) {
+    return double.parse(this.toStringAsFixed(fractionDigits));
+  }
+}
