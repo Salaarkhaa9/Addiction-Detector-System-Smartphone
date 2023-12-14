@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="addictionAssessmentVM" type="com.salarsapplication.app.modules.addictionassessment.data.viewmodel.AddictionAssessmentVM"/>
+    </data>
+    <FrameLayout android:id="@+id/frameAddictionAsses"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" style="@style/groupStylegray_900">
+        <LinearLayout android:id="@+id/linearColumnfacialpatterns"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_8pxh"
+            android:layout_marginStart="@dimen/_8pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearColumnaddictionasses"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_500cornerRadius">
+                <androidx.appcompat.widget.Toolbar
+                    android:gravity="start"
+                    android:id="@+id/toolbarToolbar"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_width="match_parent" app:contentInsetStart="0dp">
+                    <FrameLayout
+                        android:id="@+id/frameStackaddictionasses"
+                        android:layout_height="@dimen/_45pxv" android:layout_width="match_parent">
+                        <TextView android:ellipsize="end"
+                            android:gravity="center"
+                            android:id="@+id/txtAddictionAsses"
+                            android:layout_gravity="start"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtAddictionAsses}"
+                            style="@style/txt" tools:text="@string/msg_addiction_asses"/>
+                        <ImageView android:id="@+id/imageVector"
+                            android:layout_gravity="top|start"
+                            android:layout_height="@dimen/_17pxh"
+                            android:layout_marginBottom="@dimen/_11pxv"
+                            android:layout_marginEnd="@dimen/_10pxh"
+                            android:layout_marginStart="@dimen/_10pxh"
+                            android:layout_marginTop="@dimen/_11pxv"
+                            android:layout_width="@dimen/_21pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_vector_gray_50_17x21"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_vector_gray_50_17x21"/>
+                    </FrameLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </LinearLayout>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtFacialPatterns"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtFacialPatterns}"
+                style="@style/txtManjariregular32" textUnderline="true" tools:text="@string/lbl_facial_patterns"/>
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearColumndescription"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_5pxh"
+                android:layout_marginTop="@dimen/_20pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_900cornerRadius">
+                <TextView android:gravity="start"
+                    android:id="@+id/txtDescription"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_51pxv"
+                    android:layout_marginEnd="@dimen/_24pxh"
+                    android:layout_marginStart="@dimen/_8pxh"
+                    android:layout_marginTop="@dimen/_46pxv"
+                    android:layout_width="match_parent"
+                    android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtDescription}"
+                    style="@style/txtManjariregular20" tools:text="@string/msg_the_facial_scan"/>
+            </LinearLayout>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtMediaUsagePat"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_5pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtMediaUsagePat}"
+                style="@style/txtManjariregular32" textUnderline="true" tools:text="@string/msg_media_usage_pat"/>
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearRowfigpie"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_1pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <ImageView android:id="@+id/imageFigpie"
+                    android:layout_height="@dimen/_166pxh"
+                    android:layout_width="@dimen/_166pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_figpie"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_figpie"/>
+                <LinearLayout android:gravity="start"
+                    android:id="@+id/linearColumnellipsetwo"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_26pxv"
+                    android:layout_marginStart="@dimen/_50pxh"
+                    android:layout_marginTop="@dimen/_17pxv"
+                    android:layout_weight="0.37"
+                    android:layout_width="0dp" android:orientation="vertical">
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipsetwo"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8pxh"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <View
+                            android:background="@drawable/rectangle_bg_red_700_radius_5_5"
+                            android:id="@+id/viewEllipseTwo"
+                            android:layout_height="@dimen/_11pxh"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_11pxh"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtInstagram"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_weight="0.87"
+                            android:layout_width="0dp"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtInstagram}"
+                            style="@style/txtManjariregular16" tools:text="@string/lbl_instagram"/>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipsetwoOne"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_6pxh"
+                        android:layout_marginTop="@dimen/_8pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <View
+                            android:background="@drawable/rectangle_bg_red_a100_radius_5_5"
+                            android:id="@+id/viewEllipseTwoOne"
+                            android:layout_height="@dimen/_11pxh"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_11pxh"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtWhatsapp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_weight="0.87"
+                            android:layout_width="0dp"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtWhatsapp}"
+                            style="@style/txtManjariregular16" tools:text="@string/lbl_whatsapp"/>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipsetwoTwo"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_7pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <View
+                            android:background="@drawable/rectangle_bg_pink_100_radius_5_5"
+                            android:id="@+id/viewEllipseTwoTwo"
+                            android:layout_height="@dimen/_11pxh"
+                            android:layout_marginBottom="@dimen/_3pxv"
+                            android:layout_marginTop="@dimen/_3pxv" android:layout_width="@dimen/_11pxh"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtYouTube"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_weight="0.85"
+                            android:layout_width="0dp"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtYouTube}"
+                            style="@style/txtManjariregular16" tools:text="@string/lbl_youtube"/>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipsetwoThree"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_8pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <View
+                            android:background="@drawable/rectangle_bg_green_401_radius_5_5"
+                            android:id="@+id/viewEllipseTwoThree"
+                            android:layout_height="@dimen/_11pxh"
+                            android:layout_marginBottom="@dimen/_3pxv"
+                            android:layout_marginTop="@dimen/_3pxv" android:layout_width="@dimen/_11pxh"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtChrome"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_width="match_parent"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtChrome}"
+                            style="@style/txtManjariregular16" tools:text="@string/lbl_chrome"/>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="start"
+                        android:id="@+id/linearRowellipsetwoFour"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10pxh"
+                        android:layout_marginTop="@dimen/_10pxv"
+                        android:layout_width="match_parent" android:orientation="horizontal">
+                        <View
+                            android:background="@drawable/rectangle_bg_lime_a400_radius_5_5"
+                            android:id="@+id/viewEllipseTwoFour"
+                            android:layout_height="@dimen/_11pxh"
+                            android:layout_marginBottom="@dimen/_5pxv"
+                            android:layout_marginTop="@dimen/_1pxv" android:layout_width="@dimen/_11pxh"/>
+                        <TextView android:ellipsize="end"
+                            android:id="@+id/txtSnapchat"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5pxh"
+                            android:layout_weight="0.87"
+                            android:layout_width="0dp"
+                            android:singleLine="true"
+                            android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtSnapchat}"
+                            style="@style/txtManjariregular16" tools:text="@string/lbl_snapchat"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal"
+                android:id="@+id/linearColumndescriptionOne"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_9pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStylegray_900cornerRadius">
+                <TextView android:gravity="center_horizontal"
+                    android:id="@+id/txtDescriptionOne"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_40pxv"
+                    android:layout_marginEnd="@dimen/_12pxh"
+                    android:layout_marginStart="@dimen/_8pxh"
+                    android:layout_marginTop="@dimen/_35pxv"
+                    android:layout_width="match_parent"
+                    android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtDescriptionOne}"
+                    style="@style/txtManjariregular20" tools:text="@string/msg_the_media_usage"/>
+            </LinearLayout>
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txtLanguage"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_7pxv"
+                android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_1pxh"
+                android:paddingTop="@dimen/_15pxv"
+                android:singleLine="true"
+                android:text="@{addictionAssessmentVM.addictionAssessmentModel.txtLanguage}"
+                style="@style/txtSolidRoundedOutline" tools:text="@string/lbl_go_to_suggester"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>
